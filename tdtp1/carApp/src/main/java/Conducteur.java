@@ -1,39 +1,37 @@
 public class Conducteur {
+    /**
+     * Nom du conducteur.
+     */
     private String nom;
+    /**
+     * Age du conducteur.
+     */
     private int age;
 
-    public Conducteur(String name, int years) {
+    /**
+     * Constructeur du conducteur.
+     * @param name
+     * @param years
+     */
+    public Conducteur(final String name, final int years) {
         this.nom = name;
         this.age = years;
     }
 
-    public boolean estAdulte() {
-        return age >= 10;
+    /**
+     * Méthode qui retourne vrai si le conducteur est un adulte.
+     * @return boolean
+     */
+    public boolean isAdult() {
+        final int ageLimit = 10;
+        return age >= ageLimit;
     }
 
-    public void demarrerVoiture(Voiture voiture) {
-        if (estAdulte()) {
-            System.out.println(nom + " démarre la voiture.");
-        } else {
-            System.out.println("Le conducteur n'est pas assez âgé pour conduire.");
-        }
-    }
-
-    public void arreterVoiture(Voiture voiture) {
-        System.out.println(nom + " arrête la voiture.");
-    }
-
-    public void changerVitesse(Voiture voiture, int nouvelleVitesse) {
-        System.out.println(nom + " change la vitesse de la voiture à " + nouvelleVitesse);
-        int vitesseActuelle;
-        if (voiture.getVitesse() >= nouvelleVitesse) {
-            while (voiture.getVitesse() > nouvelleVitesse) {
-                voiture.ralentir();
-            }
-        } else  {
-            while (voiture.getVitesse() < nouvelleVitesse) {
-                voiture.accelerer();
-            }
-        }
+    /**
+     * Renvoie le nom du conducteur.
+     * @return
+     */
+    public String getNom() {
+        return nom;
     }
 }
